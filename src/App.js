@@ -1,25 +1,25 @@
 import logo from './logo.svg';
 import './App.css';
+import ExpenseItem from './Expenses/ExpenseItem';
+import Expenses from './Expenses/Expenses';
+import NewExpense from './Expenses/NewExpense';
+import { useState } from 'react';
+import ExpenseForm from './Expenses/ExpenseForm';
+import { ExpenseContext } from './Expenses/expense-context';
+import ExpenseContextProvider from './Expenses/expense-context';
 
-function App() {
+
+const App = () => {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ExpenseContextProvider >
+      <div>
+        <NewExpense>
+          <ExpenseForm />
+        </NewExpense>
+        <Expenses />
+      </div>
+    </ExpenseContextProvider>
   );
 }
-
 export default App;
