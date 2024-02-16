@@ -5,6 +5,8 @@ import { useContext } from 'react';
 import { ExpenseContext } from './expense-context';
 import { useDispatch } from 'react-redux';
 
+import { expenseActions } from '../Store';
+
 const ExpenseForm = (props) => {
 
    // const { onSaveExpenseData } = useContext(ExpenseContext);
@@ -38,7 +40,9 @@ const ExpenseForm = (props) => {
         //console.log(expenseData);
         // props.onSaveExpenseData(expenseData);
         //onSaveExpenseData(expenseData);
-        dispatch({type:"ADD_EXPENSE", payload: expenseData});
+        //dispatch({type:"ADD_EXPENSE", payload: expenseData});
+        dispatch(expenseActions.addExpense(expenseData));
+
 
         setEnteredTitle('');
         setEnteredAmount('');
